@@ -2,11 +2,16 @@
   <fieldset>
     <legend>{{ label }}</legend>
 
-    <div
-        v-for="option in options"
-        :key="option.value"
-    >
-      <input required type="radio" name="radio" :id="option.value" :value="option.value" :checked="option.selected" />
+    <div v-for="option in options" :key="option.value">
+      <input 
+        required 
+        type="radio" 
+        name="radio"
+        :id="option.value"
+        :value="option.value"
+        :checked="option.value === value"
+        @change="yearsChange(option.value)"
+      />
       <label :for="option.value">{{ option.text }}</label>
     </div>
   </fieldset>
@@ -21,12 +26,22 @@ export default {
       type: String,
       default: ''
     },
-
     options: {
-      type: Object,
+      type: Array,
       required: true
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
+
+  methods: {
+    yearsChange(years) {
+     
+      this.$emit('years', years)
+    }
+  }
 }
 </script>
 

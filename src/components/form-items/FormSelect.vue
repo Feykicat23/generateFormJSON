@@ -1,11 +1,13 @@
 <template>
   <div>
     <p>{{ label }}</p>
-    <select>
+    <select @change="genChange">
+      <option value="" disabled selected>Выберите значение</option>
       <option
         v-for="option in options"
         :key="option.value"
         :selected="option.selected"
+        :value="option.value"
       >{{ option.text }}</option>
     </select>
   </div>
@@ -18,14 +20,21 @@ export default {
   props: {
     label: {
       type: String,
-      default: ''
+      default: 'Пол'
     },
-
     options: {
-      type: Object,
+      type: Array,
       required: true
     }
   },
+
+  methods: {
+    genChange(event) {
+    const gender = event.target.value;
+  
+    this.$emit('gender', gender);
+  }
+ }
 }
 </script>
 

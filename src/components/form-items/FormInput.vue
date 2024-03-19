@@ -5,6 +5,7 @@
         v-bind="$attrs"
         :type="type"
         required
+        v-model="internalValue"
     />
   </div>
 </template>
@@ -21,9 +22,25 @@ export default {
     type: {
       type: String,
       default: 'text'
+    },
+    value: {
+      type: String,
+      default: ''
+    }
+  },
+
+  data() {
+    return {
+      internalValue: this.value 
+    };
+  },
+
+  watch: {
+    internalValue(newValue) {
+      this.$emit('input', newValue);
     }
   }
-}
+};
 </script>
 
 <style scoped>
