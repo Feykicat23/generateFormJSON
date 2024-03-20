@@ -20,7 +20,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Пол'
+      default: ''
     },
     options: {
       type: Array,

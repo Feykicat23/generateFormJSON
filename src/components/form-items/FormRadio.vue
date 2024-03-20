@@ -10,7 +10,7 @@
         :id="option.value"
         :value="option.value"
         :checked="option.value === value"
-        @change="yearsChange(option.value)"
+        @change="yearsChange(parseInt(option.value))"
       />
       <label :for="option.value">{{ option.text }}</label>
     </div>
