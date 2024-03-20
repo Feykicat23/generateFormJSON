@@ -9,8 +9,8 @@
             :label="item.label"
             :options="item.additional?.options"
             v-model="formData[key][item.name]"
-            @years="handleChange(formData[key], item.name, $event, key)"
-            @gender="handleChange(formData[key], item.name, $event, key)" />
+            @years="receiveData(formData[key], item.name, $event, key)"
+            @gender="receiveData(formData[key], item.name, $event, key)" />
         </template>
         
         <div v-if="showPasswordError[key]" class="error-message">
@@ -51,10 +51,10 @@ export default {
   },
   
   methods: {
-    handleChange(formData, name, value, formType) {
-      // Динамическое ключ-имя
+    receiveData(formData, name, value, formType) {
       formData[name] = value;
     },
+
     onSubmit(items, formType) {
       const formData = this.formData[formType];
 
@@ -87,6 +87,7 @@ export default {
           return 'form-password';
       }
     }
+
   },
   components: { FormPassword, FormRadio, FormSelect, FormInput },
 }
