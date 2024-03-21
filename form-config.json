@@ -132,26 +132,26 @@
     ]
   },
   "another": {
-    "name": "Жена",
+    "name": "Питомец",
     "items": [
       {
-        "name": "gender",
+        "name": "mainName",
         "type": "input",
-        "label": "Имя"
+        "label": "Кличка"
       },
       {
-        "name": "gender",
+        "name": "kind",
         "type": "select",
-        "label": "Пол",
+        "label": "Вид питомца",
         "additional": {
           "options": [
             {
-              "value": "male",
-              "text": "Мужской"
+              "value": "cat",
+              "text": "Кошка"
             },
             {
-              "value": "female",
-              "text": "Женский"
+              "value": "dog",
+              "text": "Cобака"
             }
           ]
         }
@@ -163,35 +163,31 @@
         "additional": {
           "options": [
             {
-              "value": "10",
-              "text": "От нуля до 10"
+              "value": "3",
+              "text": "От нуля до 3"
             },
             {
-              "value": "20",
-              "text": "От 10 до 20"
+              "value": "4",
+              "text": "От 3 до 7"
             },
             {
-              "value": "30",
-              "text": "От 20 до 30"
-            },
-            {
-              "value": "40",
-              "text": "От 30 и выше"
+              "value": "12",
+              "text": "От 7 до 15"
             }
           ]
         }
       },
       {
-        "name": "pass",
+        "name": "yourMail",
         "type": "password",
-        "label": "Введите пароль"
+        "label": "Введите почту"
       },
       {
-        "name": "repeat-pass",
+        "name": "yourMail-again",
         "type": "password",
-        "label": "Повторите пароль",
+        "label": "Повторите почту",
         "additional": {
-          "parent": "pass"
+          "parent": "yourMail"
         }
       }
     ]

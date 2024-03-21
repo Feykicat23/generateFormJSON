@@ -57,15 +57,36 @@ export default {
 
     onSubmit(items, formType) {
       const formData = this.formData[formType];
+      
+      let password, repeatPassword;
 
-      if (formData.pass !== formData['repeat-pass']) {
-        this.showPasswordError[formType] = true;
-        return
+      // Находим два значения паролей
+      items.forEach(item => {
+          if (item.type === 'password') {
+              if (item.additional && item.additional.parent) {
+                  repeatPassword = formData[item.name];
+                  console.log(repeatPassword)
+              } else {
+                  password = formData[item.name];
+                  console.log(password)
+              }
+          }
+      });
+
+      // Проверяем, совпадают ли значения паролей
+      if (password === repeatPassword) {
+          this.showPasswordError[formType] = false; // Сбрасываем ошибку, если пароли совпадают
+          console.log('Пароли совпадают!');
+      } else {
+          this.showPasswordError[formType] = true; // Показываем ошибку, если пароли не совпадают
+          console.log('Пароли не совпадают!');
+          return
       }
 
       const requestData = {};
       for (const item of items) {
-        if (!item.additional || item.additional.parent !== "pass") {
+        console.log(item)
+        if (!item.additional || !item.additional.parent) {
           requestData[item.name] = formData[item.name];
         }
       }
