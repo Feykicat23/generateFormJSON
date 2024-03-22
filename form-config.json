@@ -135,7 +135,7 @@
     "name": "Питомец",
     "items": [
       {
-        "name": "mainName",
+        "name": "nickName",
         "type": "input",
         "label": "Кличка"
       },
@@ -157,37 +157,71 @@
         }
       },
       {
+        "name": "breed",
+        "type": "select",
+        "label": "Порода",
+        "additional": {
+          "options": [
+            {
+              "value": "Street",
+              "text": "Уличный"
+            },
+            {
+              "value": "Has a breed",
+              "text": "Породистый"
+            }
+          ]
+        }
+      },
+      {
         "name": "age",
         "type": "radio",
         "label": "Возраст",
         "additional": {
           "options": [
             {
-              "value": "3",
+              "value": "2",
               "text": "От нуля до 3"
             },
             {
-              "value": "4",
+              "value": "5",
               "text": "От 3 до 7"
             },
             {
-              "value": "12",
+              "value": "11",
               "text": "От 7 до 15"
             }
           ]
         }
       },
       {
-        "name": "yourMail",
+        "name": "wool",
+        "type": "radio",
+        "label": "Тип шерстяного покрова",
+        "additional": {
+          "options": [
+            {
+              "value": "1",
+              "text": "Длинношерстный"
+            },
+            {
+              "value": "2",
+              "text": "Короткошёрстные"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Password",
         "type": "password",
-        "label": "Введите почту"
+        "label": "Введите пароль"
       },
       {
         "name": "yourMail-again",
         "type": "password",
-        "label": "Повторите почту",
+        "label": "Повторите пароль",
         "additional": {
-          "parent": "yourMail"
+          "parent": "Password"
         }
       }
     ]
